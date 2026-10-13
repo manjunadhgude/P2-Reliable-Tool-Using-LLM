@@ -1,0 +1,29 @@
+{
+  "suite_version": "v3",
+  "generator": "generate_v3_suite.py",
+  "seed": 20261010,
+  "scenario_examples": 210,
+  "split_counts": {
+    "dev": 60,
+    "test": 150
+  },
+  "families": [
+    "conflicting_order",
+    "cross_tenant",
+    "eligibility",
+    "item_listing",
+    "missing_item",
+    "missing_order",
+    "multi_step_read",
+    "no_tool",
+    "order_lookup",
+    "prompt_injection",
+    "refund_estimate",
+    "return_policy",
+    "ticket_missing_order",
+    "ticket_proposal"
+  ],
+  "sha256": "5b636bd75003f5e223e7dd5789ca63a3dd3aa9a4acd1eaca3d80d1822edbf17c",
+  "internal_synthetic": true,
+  "source_v2_preserved": true
+}

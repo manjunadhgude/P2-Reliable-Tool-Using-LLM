@@ -1,0 +1,10 @@
+{
+  "dataset_version": "p2-controller-v4-holdout-v3",
+  "rows": 18,
+  "unique_cores": 18,
+  "scenario_families": 17,
+  "split": "test",
+  "sha256": "01d824839a8d0b49726745eb7b2c7ef1858268343301f591ad1b10290380a352",
+  "annotation_status": "AI-authored; not independently human-adjudicated",
+  "protocol": "New prompt cores and wording, disjoint from V5 and earlier v4 sets; frozen for a single final model-only run and paired offline replay. No tuning permitted on these results. Synthetic action test only; not end-to-end execution."
+}

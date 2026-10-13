@@ -1,0 +1,86 @@
+{
+  "manifest_version": "1.0.0",
+  "project_id": "p2-reliable-tool-using-llm-business-operations",
+  "project_name": "P2 — Reliable Tool-Using LLM for Business Operations",
+  "status": "scope_locked",
+  "purpose": "Build a secure, testable full-stack application that uses an open-weight LLM to select and call a fixed set of typed business tools, with server-side policy checks, human approval for state changes, auditable traces, and reproducible evaluation.",
+  "domain": {
+    "name": "synthetic_ecommerce_customer_support",
+    "real_customer_data_allowed": false,
+    "real_financial_transactions_allowed": false
+  },
+  "required_tools": [
+    {"name": "lookup_order", "side_effect": false},
+    {"name": "list_order_items", "side_effect": false},
+    {"name": "get_return_policy", "side_effect": false},
+    {"name": "check_refund_eligibility", "side_effect": false, "source_of_truth": "deterministic_application_logic"},
+    {"name": "calculate_refund_estimate", "side_effect": false, "source_of_truth": "decimal_arithmetic_in_application_code"},
+    {"name": "create_support_ticket", "side_effect": true, "approval_required": true, "idempotency_required": true}
+  ],
+  "required_components": [
+    "FastAPI backend",
+    "React TypeScript frontend",
+    "persistent relational database and migrations",
+    "typed tool registry and normalized action parser",
+    "real open-weight model adapter",
+    "clearly labelled deterministic test backend",
+    "server-side authorization and policy gates",
+    "pending-action approval workflow",
+    "trace and audit persistence",
+    "synthetic dataset generator and validator",
+    "benchmark runner and JSON/CSV result export",
+    "automated tests",
+    "Docker Compose local setup",
+    "CI workflow",
+    "technical documentation"
+  ],
+  "suggested_stack": {
+    "backend": ["Python", "FastAPI", "Pydantic", "SQLAlchemy 2", "Alembic"],
+    "database": ["PostgreSQL for standard deployment", "document a low-friction local option if useful"],
+    "frontend": ["React", "TypeScript", "Vite"],
+    "model_runtime": ["PyTorch", "Transformers"],
+    "training_optional_when_feasible": ["Datasets", "TRL", "PEFT", "bitsandbytes where compatible"],
+    "serving_optional_when_justified": ["vLLM if hardware and model support it"]
+  },
+  "control_limits_initial_defaults": {
+    "max_model_steps_per_user_turn": 5,
+    "max_tool_calls_per_user_turn": 4,
+    "model_output_repair_retries": 1,
+    "tool_retries_default": 0,
+    "state_changing_tool_requires_server_approval": true,
+    "idempotency_for_writes": true,
+    "values_must_be_configurable": true
+  },
+  "research_comparison": {
+    "baseline_a": "pretrained open-weight model with minimum correct tool instructions",
+    "baseline_b": "same model with prompt engineering and examples",
+    "experiment_c": "same model with LoRA/QLoRA adapter, only if feasible",
+    "optional_experiment": "quantized inference or alternate serving runtime if supported",
+    "must_use_same_tool_executor_and_locked_test_set": true,
+    "fine_tuning_improvement_assumed": false,
+    "fabricated_metrics_allowed": false
+  },
+  "initial_planning_targets_not_guarantees": {
+    "train_examples": "1000-2000 if feasible",
+    "validation_examples": "150-250 if feasible",
+    "held_out_test_examples": "at least 300 if feasible",
+    "tool_selection_accuracy": 0.85,
+    "exact_argument_accuracy": 0.8,
+    "task_completion_rate": 0.8,
+    "fine_tuning_success_threshold": "target at least 5 percentage point gain on a preselected primary metric without material safety/task regression; report honestly if not met"
+  },
+  "mandatory_non_goals": [
+    "real refunds or financial transactions",
+    "real customer data or live customer systems",
+    "arbitrary shell or code execution by the model",
+    "arbitrary SQL generated and executed by the model",
+    "unrestricted HTTP tools",
+    "multi-agent system",
+    "general-purpose RAG replacement for P1",
+    "GraphRAG",
+    "voice or OCR/VLM features",
+    "training a foundation model from scratch"
+  ],
+  "completion_source": "docs/ACCEPTANCE_CHECKLIST.md",
+  "authoritative_specification": "docs/P2_BUILD_SPEC.md"
+}

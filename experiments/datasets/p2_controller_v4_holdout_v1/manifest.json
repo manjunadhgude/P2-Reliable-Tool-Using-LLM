@@ -1,0 +1,11 @@
+{
+  "dataset_version": "p2-controller-v4-holdout-v1",
+  "rows": 18,
+  "unique_cores": 18,
+  "scenario_families": 17,
+  "split": "test",
+  "sha256": "c16a5bcee419f9bc637101f9025d6161daf55c3e4016f4263c30b3d1a963240c",
+  "annotation_status": "AI-authored and AI-reviewed; not independently human-adjudicated",
+  "protocol": "New request cores disjoint from V5 and the exploratory v4 diagnostic set. Frozen before one final evaluation pass. Use only for evaluation, not further tuning. Does not measure end-to-end tool completion.",
+  "untouched_at_freeze": true
+}

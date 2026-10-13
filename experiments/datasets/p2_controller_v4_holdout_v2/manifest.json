@@ -1,0 +1,11 @@
+{
+  "dataset_version": "p2-controller-v4-holdout-v2",
+  "rows": 18,
+  "unique_cores": 18,
+  "scenario_families": 17,
+  "split": "test",
+  "sha256": "120994b94d63ea0a29990a15c99bbeb10347fc5bb4ab1c1de3396d293c0e4e95",
+  "annotation_status": "AI-authored; not independently human-adjudicated",
+  "protocol": "New core IDs and prompt phrasings disjoint from V5 and previous v4 sets. Frozen before final model-only inference; one paired replay; no tuning permitted from these outcomes. Does not measure tool execution or task completion.",
+  "untouched_at_freeze": true
+}

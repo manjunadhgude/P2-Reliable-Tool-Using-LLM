@@ -1,0 +1,3 @@
+# P2 Recovery V1 annotation policy
+
+Expected action labels are internal engineering annotations derived from registered tool schemas, seeded synthetic orders, and the explicit request. They are not independently human-reviewed. Missing or conflicting order/item references require clarification. Refund eligibility and amounts are never predicted as business truth: registered application rules decide them. Ticket proposals are not ticket writes; supervisor approval remains mandatory. Tenant and unsupported-operation examples test safe application behavior. This set is a new internal development/evaluation probe, not independent validation. Original prompts and IDs are retained.

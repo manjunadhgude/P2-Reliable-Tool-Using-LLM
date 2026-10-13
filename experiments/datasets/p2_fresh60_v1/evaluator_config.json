@@ -1,0 +1,14 @@
+{
+  "evaluator_version": "p2-fresh60-eval-v1",
+  "dataset": "experiments/datasets/p2_fresh60_v1/scenarios.jsonl",
+  "split": "engineering_eval",
+  "exact_action_rule": "action_type and expected tool name must match; expected argument dictionaries and missing_fields must exactly match when provided",
+  "invalid_output_rule": "unparseable output, unknown action/tool, schema-invalid action, timeout, or missing action is invalid and incorrect",
+  "raw_model_scope": "one actual Ollama model action per example through the existing Ollama adapter; no registered business tool execution in this phase",
+  "controller_scope": "offline replay of the same frozen raw proposals through V2 and opt-in V4; replay does not execute tools or database operations",
+  "per_family": true,
+  "latency": "wall-clock for actual model call plus parsing; report median and p95; action-only scope",
+  "expected_tool_denominator": "examples with expected_tool_name",
+  "expected_argument_denominator": "examples with expected_arguments object",
+  "provenance": "internal synthetic labels; not independently human adjudicated"
+}

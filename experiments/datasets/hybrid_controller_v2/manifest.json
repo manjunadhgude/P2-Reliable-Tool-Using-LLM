@@ -1,0 +1,18 @@
+{
+  "dataset_version": "p2-hybrid-controller-v2",
+  "generator": "experiments/data_generation/generate_v2_suite.py",
+  "generator_seed": 20261010,
+  "total_examples": 198,
+  "scenario_examples": 168,
+  "split_counts": {
+    "dev": 28,
+    "test": 140
+  },
+  "deterministic_control_fault_count": 30,
+  "control_faults_sha256": "a37d6268af6be63ec09302289f697fea0860299f3f2b466cde71580d2588dd29",
+  "templates_disjoint_by_split": true,
+  "test_template_count": 140,
+  "dev_template_count": 28,
+  "sha256": "3c53d39fdfcb3f621b5b0c9135ca286fb9ef79ec85ba00db54616e3b2d62cd64",
+  "independence_note": "Internally generated synthetic evaluation; test prompts use a separate authored template pool from dev and are not an external benchmark."
+}

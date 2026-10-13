@@ -1,0 +1,26 @@
+{
+  "record": "p2-hybrid-controller-v2-postfreeze-runtime-hardening",
+  "date": "2026-10-10",
+  "base_frozen_config": "experiments/results/hybrid_controller_v2_frozen_config.json",
+  "base_source_bundle_sha256": "801d7a8591ad3ec9f6bae537ff893e43b3efac4164baeace63e7de16438301bf",
+  "changes_after_action_suite_freeze": [
+    "Ollama final-answer synthesis now sends no registered tools and explicitly requests a concise answer grounded in the completed tool result.",
+    "A failure while generating the final answer no longer creates a misleading duplicate failed ToolExecution record; the completed tool records remain truthful."
+  ],
+  "current_file_sha256": {
+    "backend/app/main.py": "616c6cbb9a599661c78079292935f252f2265198cf6e4ff43a5a5dd548895f8c",
+    "backend/app/llm/backends.py": "71bf1483a48e0b31d96db598d5a10c8dc510c4025192b05cba50565045501ccb",
+    "backend/app/hybrid_controller.py": "58a18a48a2af177b4e544259452f96595495b0ba78060b307b8b9cf48a6b5bbe",
+    "backend/tests/test_ollama_final_phase.py": "0b6e3b78b7f11c967b7702c855e7d72e2ce35468efda4e951aa980213cd7665d",
+    "experiments/evaluation/run_hybrid_v2_estimate_smoke.py": "fec55a9a55fc3891d3e504c3860cc8bada174a72d260d84aefce8c02672e4023"
+  },
+  "postchange_tests": {
+    "backend_tests": "46 passed; one upstream Starlette/AnyIO deprecation warning",
+    "focused_tests": "2 passed",
+    "ruff": "passed",
+    "frontend_build": "passed",
+    "playwright_e2e": "1 passed",
+    "real_estimate_smoke": "passed one actual local Ollama application workflow; tool-derived estimate 50.27; final model answer included amount; 27,993 ms"
+  },
+  "provenance": "The frozen 140-case raw action run and offline hybrid action replay were completed before these post-freeze final-answer-only changes. They are preserved as historical v2 action results. The post-change estimate smoke is supplemental and is not included in those benchmark scores."
+}

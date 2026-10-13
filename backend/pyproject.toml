@@ -1,0 +1,30 @@
+[project]
+name = "p2-business-operations"
+version = "0.1.0"
+description = "Reliable tool-using assistant for synthetic e-commerce support workflows"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi==0.115.12",
+  "uvicorn[standard]==0.34.2",
+  "sqlalchemy==2.0.40",
+  "pydantic==2.11.4",
+  "pydantic-settings==2.9.1",
+  "alembic==1.15.2",
+  "psycopg[binary]==3.2.9",
+]
+
+[project.optional-dependencies]
+model = ["torch==2.7.0", "transformers==4.51.3", "accelerate==1.6.0", "safetensors==0.5.3"]
+train = ["peft==0.15.2", "bitsandbytes==0.50.2"]
+dev = ["pytest==8.3.5", "httpx==0.28.1", "ruff==0.11.9"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

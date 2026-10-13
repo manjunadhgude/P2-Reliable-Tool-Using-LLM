@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/p2/action-envelope.schema.json",
+  "title": "P2 Normalized Model Action Envelope",
+  "description": "Model-independent internal action protocol. This schema validates a proposed action shape; server-side authorization and policy checks are still mandatory before any tool executes.",
+  "oneOf": [
+    {"$ref": "#/$defs/tool_call"},
+    {"$ref": "#/$defs/final_answer"},
+    {"$ref": "#/$defs/propose_state_change"},
+    {"$ref": "#/$defs/clarification"},
+    {"$ref": "#/$defs/handoff"}
+  ],
+  "$defs": {
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "claim": {
+      "type": "object",
+      "properties": {
+        "text": {"type": "string", "minLength": 1},
+        "source_type": {"type": "string", "enum": ["tool_result", "policy", "conversation_context", "general_explanation"]},
+        "source_id": {"type": ["string", "null"]}
+      },
+      "required": ["text", "source_type", "source_id"],
+      "additionalProperties": false
+    },
+    "tool_call": {
+      "type": "object",
+      "properties": {
+        "action_type": {"const": "tool_call"},
+        "tool_name": {"type": "string", "enum": ["lookup_order", "list_order_items", "get_return_policy", "check_refund_eligibility", "calculate_refund_estimate"]},
+        "arguments": {"type": "object"},
+        "reason_summary": {"type": "string", "maxLength": 500},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      },
+      "required": ["action_type", "tool_name", "arguments", "reason_summary"],
+      "additionalProperties": false
+    },
+    "final_answer": {
+      "type": "object",
+      "properties": {
+        "action_type": {"const": "final_answer"},
+        "answer": {"type": "string"},
+        "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}},
+        "needs_human_review": {"type": "boolean"},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      },
+      "required": ["action_type", "answer", "claims", "needs_human_review"],
+      "additionalProperties": false
+    },
+    "propose_state_change": {
+      "type": "object",
+      "properties": {
+        "action_type": {"const": "propose_state_change"},
+        "tool_name": {"const": "create_support_ticket"},
+        "arguments": {"type": "object"},
+        "reason_summary": {"type": "string", "maxLength": 500},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      },
+      "required": ["action_type", "tool_name", "arguments", "reason_summary"],
+      "additionalProperties": false
+    },
+    "clarification": {
+      "type": "object",
+      "properties": {
+        "action_type": {"const": "clarification"},
+        "question": {"type": "string", "minLength": 1},
+        "missing_fields": {"type": "array", "items": {"type": "string"}},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      },
+      "required": ["action_type", "question", "missing_fields"],
+      "additionalProperties": false
+    },
+    "handoff": {
+      "type": "object",
+      "properties": {
+        "action_type": {"const": "handoff"},
+        "reason": {"type": "string", "minLength": 1},
+        "user_safe_message": {"type": "string", "minLength": 1}
+      },
+      "required": ["action_type", "reason", "user_safe_message"],
+      "additionalProperties": false
+    }
+  }
+}

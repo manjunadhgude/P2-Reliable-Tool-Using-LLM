@@ -1,0 +1,39 @@
+{
+  "run_id": "728ba5d1-adeb-4391-8cba-5f8afc9dc207",
+  "started_at_utc": "2026-10-09T21:01:39.151625+00:00",
+  "backend": "deterministic_test",
+  "label": "Fixture backend; not model performance",
+  "model_id": null,
+  "model_revision": null,
+  "dataset_version": "p2-synthetic-v1",
+  "dataset_sha256": "a4c83c7dc28ffba20a4c08c6bd318a6dcf7ece14688806340fea531897ff42a2",
+  "split": "validation",
+  "denominator": 48,
+  "valid_actions": 48,
+  "action_match_count": 48,
+  "action_match_rate": 1.0,
+  "valid_action_rate": 1.0,
+  "per_scenario_family": {
+    "missing_order_id": {
+      "denominator": 12,
+      "action_match_count": 12
+    },
+    "eligibility_check": {
+      "denominator": 12,
+      "action_match_count": 12
+    },
+    "no_tool_explanation": {
+      "denominator": 12,
+      "action_match_count": 12
+    },
+    "prompt_injection": {
+      "denominator": 12,
+      "action_match_count": 12
+    }
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "errors": []
+}

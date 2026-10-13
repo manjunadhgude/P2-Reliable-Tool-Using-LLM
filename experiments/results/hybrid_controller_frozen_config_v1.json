@@ -1,0 +1,59 @@
+{
+  "controller_version": "hybrid-controller-v1",
+  "freeze_method": "SHA-256 over the sorted source/config file list; no Git commit exists in this workspace",
+  "source_config_sha256": "57473c7008957e9221601caeb81c6c50278ac007fc9d1339d579a164f509745b",
+  "source_config_files": [
+    ".env.hybrid-real-llm-smoke.example",
+    "backend/app/core/config.py",
+    "backend/app/hybrid_controller.py",
+    "backend/app/llm/backends.py",
+    "backend/app/main.py",
+    "backend/pyproject.toml",
+    "backend/tests/test_evaluation_metrics.py",
+    "backend/tests/test_hybrid_controller.py",
+    "config/action_envelope.schema.json",
+    "experiments/datasets/manifest.json",
+    "experiments/datasets/scenarios.jsonl",
+    "experiments/evaluation/evaluate_hybrid_controller.py",
+    "experiments/evaluation/run_hybrid_real_integration.py",
+    "experiments/evaluation/run_ollama_benchmark.py",
+    "frontend/playwright.config.ts"
+  ],
+  "controller": {
+    "enabled_only_when": "MODEL_BACKEND=ollama and HYBRID_CONTROLLER_ENABLED=true",
+    "max_model_steps": 5,
+    "max_tool_calls": 4,
+    "argument_repairs": 1,
+    "additional_model_retries": 0,
+    "ci_default_backend": "deterministic_test"
+  },
+  "model": {
+    "backend": "ollama",
+    "id": "qwen3:1.7b",
+    "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+    "format": "gguf",
+    "quantization": "Q4_K_M",
+    "think": false,
+    "temperature": 0,
+    "stream": false,
+    "max_new_tokens": 256,
+    "timeout_seconds": 90,
+    "prompt_version": "ollama-native-v1",
+    "action_schema_version": "1.0.0"
+  },
+  "dataset": {
+    "path": "experiments/datasets/scenarios.jsonl",
+    "sha256": "a4c83c7dc28ffba20a4c08c6bd318a6dcf7ece14688806340fea531897ff42a2",
+    "split_sizes": {"train": 96, "validation": 48, "test": 60}
+  },
+  "evidence_paths": {
+    "model_only_validation": "experiments/results/ollama_qwen3_1.7b_validation_modelonly_corrected_bounded_v1.json",
+    "hybrid_validation_json": "experiments/results/hybrid_controller_v1_validation_frozen.json",
+    "hybrid_validation_csv": "experiments/results/hybrid_controller_v1_validation_frozen.csv",
+    "real_application_integration": "experiments/results/hybrid_controller_v1_real_integration_frozen_20261010.json",
+    "model_only_test": "experiments/results/ollama_qwen3_1.7b_test_modelonly_corrected_bounded_v1.json",
+    "hybrid_test_json": "experiments/results/hybrid_controller_v1_test_bounded_final.json",
+    "hybrid_test_csv": "experiments/results/hybrid_controller_v1_test_bounded_final.csv"
+  },
+  "freeze_note": "No controller/source/config changes are to be made based on the locked test result. Correct only a material run-invalidating defect under a separately versioned, predeclared evaluation."
+}

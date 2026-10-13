@@ -1,0 +1,11 @@
+{
+  "dataset_version": "p2-controller-v4-eval-v1",
+  "rows": 28,
+  "unique_cores": 28,
+  "scenario_families": 16,
+  "split": "test",
+  "sha256": "18b76d883c5450866cc58ad14485907f11709462b8f928ef429a71d8e9351193",
+  "annotation_status": "AI-authored internal synthetic evaluation; not independent human adjudication",
+  "protocol": "One unique prompt core per row, 16 scenario families, no prompt reuse. Frozen before evaluation. V5 test split not used.",
+  "untouched_at_freeze": true
+}

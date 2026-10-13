@@ -1,0 +1,7 @@
+Build P2 — Reliable Tool-Using LLM for Business Operations in the current workspace. Read START_HERE.md, AGENTS.md, docs/P2_BUILD_SPEC.md, docs/IMPLEMENTATION_PLAN.md, and docs/ACCEPTANCE_CHECKLIST.md before coding. Treat the full build specification as the source of truth and preserve the locked project scope.
+
+Inspect the existing repository and environment first, write docs/feasibility_report.md, then immediately implement the project in phases. Do not return only a plan or stop after creating a scaffold. Continue through all phases that can be completed safely without asking for routine approvals. Update docs/PROGRESS.md as you work. Run and fix tests after meaningful changes.
+
+Use synthetic data only. Enforce a strict tool allowlist, typed action/tool arguments, server-side authorization and deterministic business rules, bounded model/tool loops, explicit user approval for support-ticket creation, and idempotency. Keep the real open-weight model adapter separate from the clearly labelled deterministic test backend. Do not expose shell, arbitrary code, raw SQL, or unrestricted HTTP to the model.
+
+Do not spend money, start paid resources, invent test results, make up benchmark figures, or claim fine-tuning without a real completed training/evaluation run. If model compute is blocked, document it and keep building the rest of the application. At the end, provide exact setup/run/test commands and an honest report of what works and what remains blocked.

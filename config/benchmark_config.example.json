@@ -1,0 +1,70 @@
+{
+  "benchmark_config_version": "1.0.0",
+  "dataset": {
+    "dataset_id": "p2-synthetic-tool-use",
+    "version": "0.1.0",
+    "test_split_locked": true,
+    "minimum_test_size_target": 300,
+    "split_by_scenario_family_and_seed": true,
+    "save_checksum_and_manifest": true
+  },
+  "runs": [
+    {
+      "run_id": "baseline-a-pretrained",
+      "variant": "pretrained",
+      "model_id": "SET_AFTER_FEASIBILITY_CHECK",
+      "model_revision": "SET_EXACT_REVISION",
+      "prompt_version": "minimal-tool-prompt-v1"
+    },
+    {
+      "run_id": "baseline-b-prompt-engineered",
+      "variant": "prompt_engineered",
+      "model_id": "MUST_MATCH_BASELINE_A",
+      "model_revision": "MUST_MATCH_BASELINE_A",
+      "prompt_version": "prompt-engineered-v1"
+    },
+    {
+      "run_id": "experiment-c-lora",
+      "variant": "lora_or_qlora",
+      "model_id": "MUST_MATCH_BASELINE_A_BASE_MODEL",
+      "model_revision": "MUST_MATCH_BASELINE_A_BASE_MODEL",
+      "adapter_path": "SET_AFTER_REAL_TRAINING",
+      "only_run_if_training_completed": true
+    }
+  ],
+  "controls": {
+    "same_tool_executor": true,
+    "same_tool_schemas": true,
+    "same_authorization_and_policy_layer": true,
+    "same_locked_test_cases": true,
+    "record_random_seeds": true,
+    "record_runtime_versions": true,
+    "record_hardware_and_memory": true,
+    "record_latency_and_throughput_when_measured": true,
+    "do_not_report_missing_values_as_zero": true
+  },
+  "metrics": [
+    "tool_selection_accuracy",
+    "exact_argument_accuracy",
+    "argument_field_f1",
+    "valid_action_rate",
+    "task_completion_rate",
+    "clarification_accuracy",
+    "no_tool_decision_accuracy",
+    "policy_violation_rate",
+    "unauthorized_execution_count",
+    "duplicate_write_count",
+    "end_to_end_latency_p50_ms",
+    "end_to_end_latency_p95_ms",
+    "peak_memory_mb",
+    "throughput_requests_per_second",
+    "estimated_cost_if_applicable"
+  ],
+  "reporting_rules": {
+    "never_fabricate_results": true,
+    "include_numerator_and_denominator": true,
+    "include_error_breakdown": true,
+    "include_limitations": true,
+    "never_claim_training_without_adapter_and_evaluation_artifacts": true
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "suite_version": "v5",
+  "generator_version": "v5-disjoint-core-pools-1",
+  "seed": 20261010,
+  "scenario_examples": 210,
+  "split_counts": {
+    "dev": 60,
+    "test": 150
+  },
+  "families": [
+    "conflicting_order",
+    "cross_tenant",
+    "eligibility",
+    "item_listing",
+    "missing_item",
+    "missing_order",
+    "multi_step_read",
+    "no_tool",
+    "order_lookup",
+    "prompt_injection",
+    "refund_estimate",
+    "return_policy",
+    "ticket_missing_order",
+    "ticket_proposal"
+  ],
+  "template_pools": {
+    "dev": "v5-dev-core-pool",
+    "test": "v5-test-core-pool"
+  },
+  "sha256": "e5f6b399494884c347b55c8bf352c570913472be34ebc5ffb52e089ab08adbdf",
+  "internal_synthetic": true
+}

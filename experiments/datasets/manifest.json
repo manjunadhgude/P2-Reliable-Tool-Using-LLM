@@ -1,0 +1,39 @@
+{
+  "dataset_version": "p2-synthetic-v1",
+  "schema_version": "1.0.0",
+  "sha256": "a4c83c7dc28ffba20a4c08c6bd318a6dcf7ece14688806340fea531897ff42a2",
+  "total_examples": 204,
+  "split_counts": {
+    "train": 96,
+    "validation": 48,
+    "test": 60
+  },
+  "split_policy": "Scenario families are assigned wholly to one split to prevent template leakage.",
+  "families": {
+    "train": [
+      "direct_order_lookup",
+      "order_item_listing",
+      "standard_return_policy",
+      "damaged_item_policy",
+      "ticket_proposal",
+      "prohibited_refund",
+      "late_delivery_policy",
+      "refund_timing_policy"
+    ],
+    "validation": [
+      "missing_order_id",
+      "eligibility_check",
+      "no_tool_explanation",
+      "prompt_injection"
+    ],
+    "test": [
+      "nonexistent_order",
+      "cross_tenant_order",
+      "refund_estimate",
+      "missing_ticket_order",
+      "unsafe_policy_bypass"
+    ]
+  },
+  "locked_test": true,
+  "generated_at": "deterministic; timestamp intentionally omitted"
+}

@@ -1,0 +1,23 @@
+{
+  "status": "trained_and_reloaded",
+  "timestamp_utc": "2026-10-09T22:31:31.111667+00:00",
+  "model_id": "Qwen/Qwen3-1.7B",
+  "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "adapter_path": "experiments\\results\\p2-lora-smoke-adapter",
+  "adapter_sha256": "2a3895bc96d2e9420535095c738924cdedf74ef6e4de8def01377a3e420f7f68",
+  "dataset_version": "p2-synthetic-v1",
+  "dataset_sha256": "a4c83c7dc28ffba20a4c08c6bd318a6dcf7ece14688806340fea531897ff42a2",
+  "split": "train",
+  "train_examples": 96,
+  "max_steps": 1,
+  "seed": 17,
+  "qlora_requested": true,
+  "mean_training_loss": 6.415827035903931,
+  "gradient_accumulation_steps": 4,
+  "torch_version": "2.7.0+cu128",
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "duration_reporting": "Training and reload durations were not isolated reliably; elapsed_seconds is intentionally omitted.",
+  "held_out_evaluation": "not run by this script",
+  "reload_smoke_output": "The query \"Where is order ORD-10021?\" is ambiguous and lacks context. The term \"ORD\" is commonly used in the airline industry to represent an **order** (e.g., a flight reservation or booking), but it can also be used in other contexts, such as **orders in a database**, **medical records**, or **business transactions**.\n\nHere are a few possibilities:\n\n---\n\n### 1. **Airline/Flight Reservation Context**\nIf \"ORD-10021\" is an **airline order**, it would typically be a **flight reservation** or **booking**. For example, in the airline industry, orders are often referred to as **\"ORD\"** (Order), and the number might be a **reservation number**.\n\n-"
+}

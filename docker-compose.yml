@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:17.4
+    environment:
+      POSTGRES_DB: p2
+      POSTGRES_USER: p2
+      POSTGRES_PASSWORD: local-demo-password
+    volumes:
+      - p2-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U p2 -d p2"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  api:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://p2:local-demo-password@db:5432/p2
+      DEMO_SIGNING_SECRET: ${DEMO_SIGNING_SECRET:-local-compose-demo-signing-secret-change-me}
+      MODEL_BACKEND: ${MODEL_BACKEND:-deterministic_test}
+      MODEL_ID: ${MODEL_ID:-Qwen/Qwen3-1.7B}
+      MODEL_REVISION: ${MODEL_REVISION:-70d244cc86ccca08cf5af4e1e306ecf908b1ad5e}
+      CORS_ORIGINS: http://localhost:5173
+    ports: ["8000:8000"]
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./experiments/datasets:/app/experiments/datasets:ro
+  web:
+    build: ./frontend
+    ports: ["5173:80"]
+    depends_on: [api]
+volumes:
+  p2-postgres:

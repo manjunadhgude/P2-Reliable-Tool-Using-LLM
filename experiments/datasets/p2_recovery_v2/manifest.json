@@ -1,0 +1,30 @@
+{
+  "dataset_version": "p2-recovery-v2",
+  "rows": 64,
+  "unique_normalized_prompt_cores": 64,
+  "families": {
+    "conflicting_order": 4,
+    "eligibility": 4,
+    "item_listing": 4,
+    "malformed_identifier": 4,
+    "missing_item": 4,
+    "missing_order": 4,
+    "multi_step_workflow": 4,
+    "no_tool": 4,
+    "order_lookup": 4,
+    "prompt_injection": 4,
+    "refund_estimate": 4,
+    "return_policy": 4,
+    "tenant_boundary": 4,
+    "ticket_missing_order": 4,
+    "ticket_proposal": 4,
+    "unsupported_operation": 4
+  },
+  "split_counts": {
+    "dev": 64
+  },
+  "sha256": "78c81c272919396a0f56f1f1830fd6f29c683de579277c0c43aae9743dcb2f4f",
+  "label_provenance": "Internal annotations from P2 schemas and seeded data; not independent review.",
+  "normalization": "case-fold, remove terminal synthetic Reference N. suffix if present, punctuation to spaces, collapse whitespace",
+  "generated_by": "experiments/data_generation/generate_p2_recovery_v2.py"
+}
