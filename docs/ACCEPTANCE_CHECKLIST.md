@@ -13,6 +13,7 @@ The project is frozen for interview presentation at the V4 controller result: **
 - [x] Focused structured-intent tests — 16 passed; full backend tests — 98 passed (one existing Starlette/AnyIO deprecation warning).
 - [x] Real local Ollama FastAPI smoke, process-supervised with 25-second HTTP and 45-second hard process limits: order lookup 5/5 checks, multi-step USD 90.28 estimate 5/5, pending ticket/supervisor approval/duplicate replay 7/7. Frozen result/source/model artifacts are under `experiments/results/p2_structured_intent_*_20261012T0041*.json`.
 - [x] Ruff, frontend production build, isolated Playwright approval flow (1/1), V1–V5 validators, and clean SQLite migration to `0002_turn_budgets (head)` passed.
+- [x] GitHub Actions on commit `800ebc8` passed both backend and frontend jobs, including backend pytest/Ruff and synthetic dataset generation/validation: [run #2](https://github.com/manjunadhgude/P2-Reliable-Tool-Using-LLM/actions/runs/38436126167).
 - [ ] Current Docker Compose readiness is not verified; this host could not connect to the Docker Desktop Linux engine during this pass. An earlier phase's successful Compose run remains historical evidence only.
 - [ ] Broad fresh distinct-core real-model evaluation, independent label review, and original model-quality thresholds are still unmet. These curated smoke outcomes do not qualify the candidate for promotion; overall P2 remains **PARTIAL**.
 
